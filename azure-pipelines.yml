@@ -12,6 +12,7 @@ pool:
 steps:
 - task: CocoaPods@0
   inputs:
+    workingDirectory: '**/*.xcodeproj/project.xcworkspace'
     forceRepoUpdate: false
 - task: Xcode@5
   inputs:
