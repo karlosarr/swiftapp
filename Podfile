@@ -6,6 +6,7 @@ target 'swiftapp' do
 
   # Pods for swiftapp
   pod 'AppCenter'
+  pod 'Runes'
 
   target 'swiftappTests' do
     inherit! :search_paths
