@@ -7,9 +7,12 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'macOS-10.15'
 
 steps:
+- task: CocoaPods@0
+  inputs:
+    forceRepoUpdate: false
 - task: Xcode@5
   inputs:
     actions: 'build'
