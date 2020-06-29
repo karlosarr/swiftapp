@@ -5,8 +5,8 @@ target 'swiftapp' do
   use_frameworks!
   #source 'https://github.com/CocoaPods/Specs.git'
   # Pods for swiftapp
+  pod 'Runes'
   pod 'AppCenter'
-  #pod 'Runes'
 
   target 'swiftappTests' do
     inherit! :search_paths
