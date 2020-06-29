@@ -10,7 +10,7 @@ pool:
   vmImage: 'macOS-10.15'
 
 variables:
-  scheme: ''
+  scheme: 'swiftapp'
   sdk: 'iphoneos'
   configuration: 'Release'
 
@@ -19,10 +19,11 @@ steps:
   displayName: 'Install dependencies'
 
 - task: Xcode@5
+  displayName: 'Build the app using Xcode'
   inputs:
+    actions: 'clean build analyze archive'
     sdk: '$(sdk)'
     scheme: '$(scheme)'
     configuration: '$(configuration)'
     xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
-    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    packageApp: false
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
