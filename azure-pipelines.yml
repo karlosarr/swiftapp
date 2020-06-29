@@ -16,10 +16,8 @@ variables:
 
 steps:
 - task: CocoaPods@0
-  inputs:
-    workingDirectory: '$(Build.SourcesDirectory)'
-    forceRepoUpdate: false
-    projectDirectory: '$(Build.SourcesDirectory)'
+  displayName: 'Install dependencies'
+
 - task: Xcode@5
   inputs:
     sdk: '$(sdk)'
