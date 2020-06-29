@@ -7,14 +7,18 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'macOS-10.15'
 
 steps:
+- task: CocoaPods@0
+  inputs:
+    workingDirectory: '$(Build.SourcesDirectory)'
+    forceRepoUpdate: false
 - task: Xcode@5
   inputs:
     actions: 'build'
     scheme: ''
     sdk: 'iphoneos'
     configuration: 'Release'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    xcWorkspacePath: '$(Build.SourcesDirectory)/swiftapp.xcodeproj/project.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
