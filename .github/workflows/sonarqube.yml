@@ -19,6 +19,14 @@ jobs:
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
           version: 1.9.0
+      - name: CocoaPods Dependency Submission Action
+        uses: advanced-security/cocoapods-dependency-submission-action@v1.1
+        with:
+          # [optonal] The path to the Podfile.lock file. Defaults to finding all 
+          # Podfile.lock in the current working directory
+          cocoapods-lock: "./Podfile.lock"
+          # [optional] Token used to authenticate with the GitHub API. Defaults to the GITHUB_TOKEN secret.
+          token: ${{ secrets.ACTIONS_TOKEN }}
       - name: Install sonar-scanner and build-wrapper
         uses: SonarSource/sonarcloud-github-c-cpp@v2
       - name: Run build-wrapper
