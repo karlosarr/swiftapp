@@ -27,6 +27,9 @@ jobs:
           cocoapods-lock: "./Podfile.lock"
           # [optional] Token used to authenticate with the GitHub API. Defaults to the GITHUB_TOKEN secret.
           token: ${{ secrets.ACTIONS_TOKEN }}
+      - name: pod install
+        run: |
+          pod install
       - name: Install sonar-scanner and build-wrapper
         uses: SonarSource/sonarcloud-github-c-cpp@v2
       - name: Run build-wrapper
